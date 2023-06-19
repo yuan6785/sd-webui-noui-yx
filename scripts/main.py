@@ -61,10 +61,11 @@ def on_ui_settings():
         username = hostname.split("-")[-1].strip()
     except:
         username = "unknown"
-    # shared.opts.set("outdir_samples", f"outputs/{username}")   # 系统配置选项
+    shared.opts.set("outdir_samples", f"")   # 系统配置选项
     shared.opts.set("outdir_txt2img_samples", f"outputs/{username}/txt2img-images")   # 系统配置选项
     shared.opts.set("outdir_img2img_samples", f"outputs/{username}/img2img-images")   # 系统配置选项
     shared.opts.set("outdir_extras_samples", f"outputs/{username}/extras-images")   # 系统配置选项
+    shared.opts.set("outdir_grids", f"")   # 系统配置选项
     shared.opts.set("outdir_txt2img_grids", f"outputs/{username}/txt2img-grids")   # 系统配置选项
     shared.opts.set("outdir_img2img_grids", f"outputs/{username}/img2img-grids")   # 系统配置选项
     # print("动态设置输出路径配置项完成-------by yx")
