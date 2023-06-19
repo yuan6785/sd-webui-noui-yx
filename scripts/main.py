@@ -7,6 +7,7 @@ from pathlib import Path
 import gradio as gr
 import yaml
 from modules import script_callbacks, scripts, sd_hijack, shared
+import requests
 
 try:
     from modules.paths import extensions_dir, script_path
@@ -25,18 +26,22 @@ except ImportError:
 # 插件物理路径
 EXT_INNER_PATH = Path(scripts.basedir())
 
-# Register autocomplete options
+
 def on_ui_settings():
+    """
+    参考:
+    /Users/yuanxiao/workspace/0yxgithub/stable-diffusion-webui/modules/shared.py
+    """
     if 0:
         # 启动时候动态设置配置项---这里是有效果的------
         shared.opts.set("outdir_samples", "yxtest6666")
         print("动态设置输出路径配置项完成-------by yx")
     else:
+        # 判断是云函数还是ECS启动
         base_output_dir = "outputs"
-        # 获取web页面httphost
-        print(1111, dir(sd_hijack))
-        print(1111, sd_hijack.__dict__)
-        current_host = sd_hijack.get_current_host()
-        print(1111,current_host)
+        res = requests.get("http://localhost:9965/servermanageyx/version", timeout=(5,5))
+        print(1111, res.text)
+    
+            
 
 script_callbacks.on_ui_settings(on_ui_settings)
