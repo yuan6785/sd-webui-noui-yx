@@ -35,23 +35,28 @@ def on_ui_settings():
     @des: 启动时候动态设置配置项
     参考:
     /Users/yuanxiao/workspace/0yxgithub/stable-diffusion-webui/modules/shared.py
+    参考
+    /Users/yuanxiao/workspace/0yxgithub/stable-diffusion-webui/modules/script_callbacks.py
     """
     if 1:
+        # 添加自定义配置项
+        shared.opts.add_option("playdayyconfig", shared.OptionInfo(default=None, label="天天玩家额外配置"))
         # 启动时候动态设置配置项---这里是有效果的------
         shared.opts.set("outdir_samples", "yxtest6666")
-        print("动态设置输出路径配置项完成-------by yx")
+        # print("动态设置输出路径配置项完成-------by yx")
         
 
 def on_app_started(demo: Optional[Blocks], app: FastAPI):
     """
     @des: 启动完成后的回调函数
+    参考
+    /Users/yuanxiao/workspace/0yxgithub/stable-diffusion-webui/modules/script_callbacks.py
     """
-    print(1111, demo)
-    print(2222, app)
-    # 判断是云函数还是ECS启动
-    base_output_dir = "outputs"
-    res = requests.get("http://localhost:9965/servermanageyx/version", timeout=(5,5))
-    print(1111, res.text)
+    if 0:
+        base_output_dir = "outputs"
+        res = requests.get("http://localhost:9965/servermanageyx/version", timeout=(5,5))
+        print('', res.text)
+    pass
 
             
 
