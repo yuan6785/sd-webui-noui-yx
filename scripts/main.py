@@ -55,7 +55,7 @@ def on_ui_settings():
     参考
     /Users/yuanxiao/workspace/0yxgithub/stable-diffusion-webui/modules/script_callbacks.py
     """
-    shared.opts.del_option("playdayyconfig")
+    shared.opts.add_option("playdayyconfig")
     # 获取当前ubuntu服务器的主机名
     hostname = socket.gethostname()
     try:
