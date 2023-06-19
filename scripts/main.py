@@ -55,6 +55,7 @@ def on_ui_settings():
     参考
     /Users/yuanxiao/workspace/0yxgithub/stable-diffusion-webui/modules/script_callbacks.py
     """
+    shared.opts.del_option("playdayyconfig")
     # 获取当前ubuntu服务器的主机名
     hostname = socket.gethostname()
     try:
@@ -78,6 +79,6 @@ def on_app_started(demo: Optional[Blocks], app: FastAPI):
     pass
 
             
-
-script_callbacks.on_ui_settings(on_ui_settings)
-script_callbacks.on_app_started(on_app_started)
+# script_callbacks.on_ui_tabs  # 加载tabs的时候执行---也很重要
+script_callbacks.on_ui_settings(on_ui_settings)  #加载配置项的时候执行
+script_callbacks.on_app_started(on_app_started)  #app启动后执行
