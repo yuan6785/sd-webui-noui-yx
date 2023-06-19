@@ -41,7 +41,7 @@ def on_ui_settings():
     if 1:
         TAC_SECTION = ("playdayy", "天天玩家设置")
         # 添加自定义配置项
-        shared.opts.add_option("playdayyconfig", shared.OptionInfo(default="", label="天天玩家额外配置", component_args={"visible":True}, section=TAC_SECTION))
+        shared.opts.add_option("playdayyconfig", shared.OptionInfo(default="", label="天天玩家额外配置", section=TAC_SECTION))
         # 启动时候动态设置配置项---这里是有效果的------
         shared.opts.set("outdir_samples", "yxtest6666")
         # print("动态设置输出路径配置项完成-------by yx")
