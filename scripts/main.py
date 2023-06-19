@@ -27,8 +27,7 @@ EXT_INNER_PATH = Path(scripts.basedir())
 
 # Register autocomplete options
 def on_ui_settings():
-    # print('0000', FILE_DIR, EXT_PATH, EXT_INNER_PATH)
-    print(1111, dir(shared.opts))
-    print(2222, shared.opts.__dict__)
+    # 启动时候动态设置配置项
+    shared.opts.set("outdir_samples", "yxtest6666")
 
 script_callbacks.on_ui_settings(on_ui_settings)
