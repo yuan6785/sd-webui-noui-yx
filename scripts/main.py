@@ -22,10 +22,12 @@ except ImportError:
     # The extension base path
     EXT_PATH = FILE_DIR.joinpath('extensions')
 
+# 插件物理路径
+EXT_INNER_PATH = Path(scripts.basedir())
 
 # Register autocomplete options
 def on_ui_settings():
-    print('0000', FILE_DIR, EXT_PATH)
+    print('0000', FILE_DIR, EXT_PATH, EXT_INNER_PATH)
     print(1111, shared.opts)
 
 script_callbacks.on_ui_settings(on_ui_settings)
