@@ -43,7 +43,8 @@ def on_ui_settings():
         # 添加自定义配置项
         shared.opts.add_option("playdayyconfig", shared.OptionInfo(default="", label="天天玩家额外配置", section=TAC_SECTION))
         # 启动时候动态设置配置项---这里是有效果的------
-        shared.opts.set("outdir_samples", "yxtest6666")
+        shared.opts.set("playdayyconfig", "yxtest")   # 自定义配置选项
+        shared.opts.set("outdir_samples", "yxtest6666")   # 系统配置选项
         # print("动态设置输出路径配置项完成-------by yx")
         
 
