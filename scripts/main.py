@@ -27,7 +27,16 @@ EXT_INNER_PATH = Path(scripts.basedir())
 
 # Register autocomplete options
 def on_ui_settings():
-    # 启动时候动态设置配置项
-    shared.opts.set("outdir_samples", "yxtest6666")
+    if 0:
+        # 启动时候动态设置配置项---这里是有效果的------
+        shared.opts.set("outdir_samples", "yxtest6666")
+        print("动态设置输出路径配置项完成-------by yx")
+    else:
+        base_output_dir = "outputs"
+        # 获取web页面httphost
+        print(1111, dir(sd_hijack))
+        print(1111, sd_hijack.__dict__)
+        current_host = sd_hijack.get_current_host()
+        print(1111,current_host)
 
 script_callbacks.on_ui_settings(on_ui_settings)
