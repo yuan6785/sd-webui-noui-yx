@@ -32,16 +32,20 @@ def on_ui_settings():
     参考:
     /Users/yuanxiao/workspace/0yxgithub/stable-diffusion-webui/modules/shared.py
     """
-    if 0:
+    if 1:
         # 启动时候动态设置配置项---这里是有效果的------
         shared.opts.set("outdir_samples", "yxtest6666")
         print("动态设置输出路径配置项完成-------by yx")
-    else:
-        # 判断是云函数还是ECS启动
-        base_output_dir = "outputs"
-        res = requests.get("http://localhost:9965/servermanageyx/version", timeout=(5,5))
-        print(1111, res.text)
-    
+        
+
+def on_app_started(*args, **kwargs):
+    print(1111, args)
+    print(2222, kwargs)
+    # 判断是云函数还是ECS启动
+    base_output_dir = "outputs"
+    res = requests.get("http://localhost:9965/servermanageyx/version", timeout=(5,5))
+    print(1111, res.text)
             
 
 script_callbacks.on_ui_settings(on_ui_settings)
+script_callbacks.on_app_started(on_app_started)
