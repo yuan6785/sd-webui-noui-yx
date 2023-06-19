@@ -58,7 +58,11 @@ def on_ui_settings():
     # 获取当前ubuntu服务器的主机名
     hostname = socket.gethostname()
     try:
-        username = hostname.split("-")[-1].strip()
+        slr = hostname.split("-")
+        if len(slr) > 1:
+            username = slr[-1].strip()
+        else:
+            username = "unknown"
     except:
         username = "unknown"
     shared.opts.set("outdir_samples", f"")   # 系统配置选项
